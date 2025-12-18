@@ -1,0 +1,164 @@
+:root {
+    --primary: #4978F0;
+    --background: #F4F1FF;
+    --card-bg: #ffffff;
+    --text: #1F2346;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+/* ===== NAV ===== */
+nav {
+    background: white;
+    padding: 15px 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,.08);
+}
+
+.navigation {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+
+.navigation a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--text);
+}
+
+/* ===== PRODUCTS ===== */
+.products-section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 25px;
+}
+
+.product-card {
+    background: var(--card-bg);
+    border-radius: 14px;
+    padding: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,.08);
+    position: relative;
+}
+
+.product-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+}
+
+.product-card h4 {
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* ===== DESCUENTO ===== */
+.discount {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: red;
+    color: white;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 6px;
+}
+
+/* ===== BOTÓN ===== */
+.button-glow {
+    min-width: 100%;
+    min-height: 3rem;
+    border: none;
+    cursor: pointer;
+
+    background: #3F396F;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+
+    border-radius: 2rem;
+    position: relative;
+    z-index: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: all 0.4s ease;
+}
+
+.button-glow::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    background: linear-gradient(
+        90deg,
+        #B881FF,
+        #A963F7,
+        #8bff5d,
+        #ffc300,
+        #B881FF
+    );
+    background-size: 300%;
+    filter: blur(8px);
+    opacity: 0;
+    z-index: -1;
+    border-radius: 2rem;
+    animation: glow 20s linear infinite;
+    transition: opacity .4s;
+}
+
+.button-glow:hover::before {
+    opacity: 1;
+}
+
+@keyframes glow {
+    0% { background-position: 0% }
+    50% { background-position: 300% }
+    100% { background-position: 0% }
+}
+
+/* ===== FORMULARIO RENTA ===== */
+.rent-inputs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.rent-inputs input {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 12px;
+}
+
+/* ===== FIX INPUT NUMBER (IMPORTANTE) ===== */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
